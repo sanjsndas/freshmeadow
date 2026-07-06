@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Fresh Meadow Meals</title>
+  <!-- same typography & reset as homepage -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (identical to homepage) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fbf7f0;
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+    h1, h2, h3, h4, .logo, .hero-title, .card-title {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: 3.2rem; line-height: 1.2; margin-bottom: 0.75rem; }
+    h2 { font-size: 2.2rem; margin: 2.5rem 0 1rem; border-left: 6px solid #c9a87c; padding-left: 1.25rem; }
+    h3 { font-size: 1.6rem; margin: 1.8rem 0 0.8rem; color: #2a4a4b; }
+    p { margin-bottom: 1.25rem; font-weight: 400; max-width: 75ch; }
+    .small-meta { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: #5f6b6b; margin-bottom: 0.25rem; }
+
+    /* ----- header (exactly as homepage) ----- */
+    .site-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      padding: 1.5rem 0 1rem; border-bottom: 2px solid #e5d9cc; margin-bottom: 2.5rem;
+    }
+    .logo {
+      font-size: 2rem; color: #1e3d3a; background: #e5d9cc;
+      padding: 0.1rem 1.2rem 0.3rem; border-radius: 60px 12px 12px 60px;
+      display: inline-block; letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex; gap: 2.2rem; font-weight: 500; font-size: 0.95rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: #1e2b2c;
+      border-bottom: 2px solid transparent; padding-bottom: 0.25rem; transition: 0.2s;
+    }
+    .nav-links a:hover { border-bottom-color: #c9a87c; color: #0f1f1f; }
+
+    /* ----- about hero (story) ----- */
+    .about-hero {
+      background: #f0ebe2; padding: 2.8rem 3rem; border-radius: 40px 40px 40px 8px;
+      margin-bottom: 3.5rem; display: flex; flex-wrap: wrap; gap: 2rem;
+      align-items: center; box-shadow: 0 12px 28px -8px rgba(30,43,44,0.08);
+    }
+    .about-hero-content { flex: 2 1 380px; }
+    .about-hero-content .hero-title {
+      font-size: 3.4rem; line-height: 1.1; margin-bottom: 0.5rem; color: #1e3d3a;
+    }
+    .about-hero-content .subhead {
+      font-size: 1.2rem; color: #2f4a47; max-width: 600px; margin-bottom: 1.2rem; font-weight: 350;
+    }
+    .about-image {
+      flex: 1 1 200px; border-radius: 28px 28px 28px 4px; overflow: hidden;
+      background: #c9b8a3; min-height: 160px; display: flex; align-items: center; justify-content: center;
+      color: #2a3d3a; font-size: 0.9rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280"><rect width="400" height="280" fill="%23dacfc1"/><circle cx="140" cy="110" r="55" fill="%23b7a48b"/><circle cx="280" cy="150" r="45" fill="%239d8973"/><rect x="60" y="190" width="300" height="20" rx="10" fill="%23a18d77"/><rect x="130" y="230" width="160" height="20" rx="10" fill="%238b7a66"/></svg>');
+      background-size: cover; background-position: center;
+    }
+
+    /* cards & grid (same as homepage) */
+    .grid-2col, .grid-3col {
+      display: grid; gap: 2rem; margin: 1.8rem 0 1rem;
+    }
+    .grid-2col { grid-template-columns: repeat(2, 1fr); }
+    .grid-3col { grid-template-columns: repeat(3, 1fr); }
+    .article-card {
+      background: white; padding: 1.8rem 1.8rem 2rem;
+      border-radius: 32px 8px 32px 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      transition: 0.2s; border: 1px solid #ede7dd; display: flex; flex-direction: column;
+    }
+    .article-card:hover {
+      box-shadow: 0 12px 28px -8px rgba(30,43,44,0.10); border-color: #dacfc1;
+    }
+    .card-category {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: #8c7b67; margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-size: 1.5rem; line-height: 1.2; margin-bottom: 0.5rem; color: #1e3d3a;
+    }
+    .card-excerpt { font-size: 0.95rem; color: #2f4240; margin-bottom: 1rem; flex: 1; }
+    .card-meta {
+      font-size: 0.8rem; color: #627070; border-top: 1px solid #ece3d8;
+      padding-top: 0.9rem; margin-top: 0.4rem;
+    }
+
+    /* team member cards */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem; margin: 2rem 0;
+    }
+    .team-card {
+      background: white; padding: 1.5rem; border-radius: 40px 8px 40px 8px;
+      border: 1px solid #ede7dd; text-align: center;
+    }
+    .team-card .avatar {
+      width: 90px; height: 90px; background: #dacfc1; border-radius: 50%;
+      margin: 0 auto 1rem; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="50" cy="40" r="30" fill="%23b7a48b"/><circle cx="50" cy="90" r="35" fill="%239d8973"/></svg>');
+      background-size: cover; background-position: center;
+    }
+    .team-card h4 { font-family: "DM Serif Display", serif; font-size: 1.3rem; margin-bottom: 0.2rem; }
+
+    /* timeline (unique) */
+    .timeline {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2rem 0;
+      background: #f3eee7; padding: 2rem; border-radius: 60px 8px 60px 8px;
+    }
+    .timeline-item { flex: 1 1 140px; border-left: 3px solid #c9a87c; padding-left: 1rem; }
+    .timeline-item .year { font-family: "DM Serif Display", serif; font-size: 1.8rem; color: #1e3d3a; }
+
+    /* newsletter & footer (identical) */
+    .newsletter {
+      background: #e5d9cc; padding: 2.5rem 2rem; border-radius: 60px 12px 60px 12px;
+      margin: 3rem 0 2rem; display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+    }
+    .newsletter h3 { font-family: "DM Serif Display", serif; font-size: 2rem; margin: 0; color: #1e3d3a; }
+    .newsletter p { margin: 0.3rem 0 0; max-width: 400px; }
+    .newsletter input { padding: 0.8rem 1.5rem; border: none; border-radius: 60px; font-size: 1rem; background: white; min-width: 220px; }
+    .newsletter button { background: #1e3d3a; border: none; color: white; padding: 0.8rem 2rem; border-radius: 60px; font-weight: 600; margin-left: 0.5rem; cursor: pointer; }
+
+    .footer {
+      border-top: 2px solid #e5d9cc; padding: 2rem 0 1rem; margin-top: 2.5rem;
+      display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 0.9rem; color: #4d605d;
+    }
+    .footer a { color: inherit; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .grid-2col, .grid-3col { grid-template-columns: 1fr; }
+      .about-hero { padding: 2rem; }
+      h1 { font-size: 2.4rem; }
+      .about-hero-content .hero-title { font-size: 2.6rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .newsletter { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .newsletter input { width: 100%; }
+    }
+    @media (max-width: 480px) { body { padding: 0 0.8rem; } }
+
+    .badge { background: #c9a87c; color: #1a2c2a; font-size: 0.65rem; padding: 0.1rem 0.8rem; border-radius: 30px; display: inline-block; letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (exact copy from homepage) -->
+  <header class="site-header">
+    <span class="logo">🌾 Fresh Meadow Meals</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- about hero (story) -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <div class="small-meta">est. 2015 · rooted in real food</div>
+      <h1 class="hero-title">Our story,<br />from meadow to table</h1>
+      <p class="subhead">
+        Fresh Meadow Meals began in a small kitchen with a big garden. Today, we’re a community of cooks,
+        bakers, and foragers who believe that seasonal, wholesome food is the heart of a well-lived life.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem;">
+        <span class="badge">🌱 organic ethos</span>
+        <span class="badge">🧑‍🌾 small farm network</span>
+        <span class="badge">📖 400+ recipes</span>
+      </div>
+    </div>
+    <div class="about-image" aria-label="Farmhouse kitchen with fresh produce"></div>
+  </section>
+
+  <!-- mission & values -->
+  <div style="margin: 2rem 0 1rem;">
+    <h2>🌿 Our mission</h2>
+    <p style="font-size: 1.15rem; max-width: 80ch;">
+      To inspire home cooks to embrace the rhythm of the seasons, reduce food waste, and find joy in
+      simple, nourishing meals. We champion small farms, heirloom varieties, and time‑honoured techniques.
+    </p>
+  </div>
+
+  <div class="grid-2col" style="margin-top: 1rem;">
+    <div class="article-card" style="border-left: 6px solid #c9a87c;">
+      <h3 style="margin: 0 0 0.5rem; font-size: 1.8rem;">🥕</h3>
+      <h4 class="card-title">Garden‑to‑kitchen</h4>
+      <p class="card-excerpt">We work directly with growers and our own test garden to source the freshest ingredients for every recipe.</p>
+    </div>
+    <div class="article-card" style="border-left: 6px solid #c9a87c;">
+      <h3 style="margin: 0 0 0.5rem; font-size: 1.8rem;">📚</h3>
+      <h4 class="card-title">Food literacy</h4>
+      <p class="card-excerpt">We believe in teaching technique, not just handing out recipes. Learn the ‘why’ behind each step.</p>
+    </div>
+  </div>
+
+  <!-- team -->
+  <h2>🧑‍🌾 Meet the team</h2>
+  <div class="team-grid">
+    <div class="team-card"><div class="avatar"></div><h4>Elena Rossi</h4><p style="font-size: 0.9rem; color: #4d605d;">Founder & Recipe Developer</p><p style="font-size: 0.85rem;">Former pastry chef, sourdough enthusiast.</p></div>
+    <div class="team-card"><div class="avatar"></div><h4>Marcus Webb</h4><p style="font-size: 0.9rem; color: #4d605d;">Garden & Foraging</p><p style="font-size: 0.85rem;">Tends our test garden and wild food walks.</p></div>
+    <div class="team-card"><div class="avatar"></div><h4>Priya Kapoor</h4><p style="font-size: 0.9rem; color: #4d605d;">Content & Nutrition</p><p style="font-size: 0.85rem;">Registered dietitian, loves whole grains.</p></div>
+  </div>
+
+  <!-- timeline (our journey) -->
+  <h2>⏳ Our journey</h2>
+  <div class="timeline">
+    <div class="timeline-item"><div class="year">2015</div><p>Started as a small blog from Elena’s kitchen.</p></div>
+    <div class="timeline-item"><div class="year">2017</div><p>First garden plot planted; seasonal focus begins.</p></div>
+    <div class="timeline-item"><div class="year">2020</div><p>Community grows to 100k+ cooks worldwide.</p></div>
+    <div class="timeline-item"><div class="year">2024</div><p>Published our first cookbook: <em>Meadow & Hearth</em>.</p></div>
+  </div>
+
+  <!-- values / principles (cards) -->
+  <h2>✨ What we stand for</h2>
+  <div class="grid-3col">
+    <div class="article-card"><span class="card-category">principle</span><h4 class="card-title">Real ingredients</h4><p class="card-excerpt">No obscure additives – just flour, water, salt, and love.</p></div>
+    <div class="article-card"><span class="card-category">principle</span><h4 class="card-title">Seasonal rhythm</h4><p class="card-excerpt">We cook with what’s abundant now, preserving for later.</p></div>
+    <div class="article-card"><span class="card-category">principle</span><h4 class="card-title">Community knowledge</h4><p class="card-excerpt">Sharing tips, failures, and triumphs – we learn together.</p></div>
+  </div>
+
+  <!-- press & recognition (unique section) -->
+  <div style="background: #f3eee7; padding: 1.8rem 2rem; border-radius: 40px 8px; margin: 2.5rem 0;">
+    <h2 style="border-left: none; padding-left: 0;">🏆 Press & recognition</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+      <span style="font-weight: 500;">“Best food blog for home bakers” – <em>Kitchen Journal</em></span>
+      <span style="font-weight: 500;">“Seasonal cooking at its finest” – <em>Gourmet Living</em></span>
+      <span style="font-weight: 500;">Featured in <em>Saveur</em> · <em>Bon Appétit</em> online</span>
+    </div>
+  </div>
+
+  <!-- FAQ (about page specific) -->
+  <div style="margin: 2.5rem 0;">
+    <h2>❓ About us – quick answers</h2>
+    <div style="background: white; padding: 1rem 1.8rem; border-radius: 50px 8px 50px 8px; margin-bottom: 0.8rem; border: 1px solid #e5d9cc;">
+      <strong style="font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #1e3d3a;">Where do you source your ingredients?</strong>
+      <p style="margin: 0.4rem 0 0; color: #2f4a47;">We partner with small organic farms and our own garden. All recipes are tested with seasonal, local produce.</p>
+    </div>
+    <div style="background: white; padding: 1rem 1.8rem; border-radius: 50px 8px 50px 8px; margin-bottom: 0.8rem; border: 1px solid #e5d9cc;">
+      <strong style="font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #1e3d3a;">Can I contribute a recipe?</strong>
+      <p style="margin: 0.4rem 0 0; color: #2f4a47;">We love guest contributions! Please reach out via our contact page with your idea.</p>
+    </div>
+    <div style="background: white; padding: 1rem 1.8rem; border-radius: 50px 8px 50px 8px; border: 1px solid #e5d9cc;">
+      <strong style="font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #1e3d3a;">Is Fresh Meadow Meals ad‑free?</strong>
+      <p style="margin: 0.4rem 0 0; color: #2f4a47;">Yes – we are reader‑supported. No pop‑ups, no sponsored posts. Just honest cooking.</p>
+    </div>
+  </div>
+
+  <!-- newsletter (same as homepage) -->
+  <div class="newsletter">
+    <div><h3>🌿 The Meadow Letter</h3><p>Weekly recipes, season notes, and kitchen wisdom.</p></div>
+    <div><input type="email" placeholder="your email" aria-label="Email" /><button>Subscribe</button></div>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <span>© Fresh Meadow Meals · est. 2015</span>
+    <span>🌾 400+ articles · from our kitchen to yours</span>
+    <span style="display: flex; gap: 1rem;">
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>

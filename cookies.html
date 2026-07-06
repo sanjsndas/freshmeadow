@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookies · Fresh Meadow Meals</title>
+  <!-- unique typography & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (same as main) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fbf7f0;
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    /* ----- typography (unique scale) ----- */
+    h1, h2, h3, h4, .logo, .hero-title, .card-title {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-left: 6px solid #c9a87c;
+      padding-left: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      color: #2a4a4b;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+      max-width: 75ch;
+    }
+
+    .small-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5f6b6b;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ----- header / nav (fresh identity) ----- */
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 2px solid #e5d9cc;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #1e3d3a;
+      background: #e5d9cc;
+      padding: 0.1rem 1.2rem 0.3rem;
+      border-radius: 60px 12px 12px 60px;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b2c;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c9a87c;
+      color: #0f1f1f;
+    }
+
+    /* ----- cookies hero (content-rich) ----- */
+    .cookies-hero {
+      background: #f0ebe2;
+      padding: 2.8rem 3rem;
+      border-radius: 40px 40px 40px 8px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 12px 28px -8px rgba(30, 43, 44, 0.08);
+    }
+
+    .cookies-hero .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      color: #1e3d3a;
+    }
+
+    .cookies-hero .subhead {
+      font-size: 1.2rem;
+      color: #2f4a47;
+      max-width: 700px;
+      font-weight: 350;
+    }
+
+    /* ----- cookies content (structured) ----- */
+    .cookies-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .cookies-main {
+      background: white;
+      padding: 2rem 2.2rem;
+      border-radius: 32px 8px 32px 8px;
+      border: 1px solid #ede7dd;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+    }
+
+    .cookies-main h2 {
+      border-left: none;
+      padding-left: 0;
+      margin: 1.8rem 0 0.5rem;
+    }
+
+    .cookies-main h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .cookies-main ul, .cookies-main ol {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+    }
+
+    .cookies-main li {
+      margin-bottom: 0.4rem;
+    }
+
+    .cookies-sidebar {
+      background: #f3eee7;
+      padding: 2rem 1.8rem;
+      border-radius: 40px 8px 40px 8px;
+      align-self: start;
+      border: 1px solid #e5d9cc;
+    }
+
+    .cookies-sidebar h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #1e3d3a;
+      border-left: 4px solid #c9a87c;
+      padding-left: 1rem;
+    }
+
+    .cookies-sidebar p {
+      margin: 1rem 0;
+    }
+
+    .cookies-sidebar .badge {
+      background: #c9a87c;
+      color: #1a2c2a;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+
+    /* ----- cookie table (clean) ----- */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-size: 0.95rem;
+      background: #f9f5ef;
+      border-radius: 20px 8px 20px 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .cookie-table th {
+      background: #e5d9cc;
+      color: #1e2b2c;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.8rem 1.2rem;
+      font-family: "Inter", sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .cookie-table td {
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid #e5d9cc;
+    }
+
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ----- newsletter (minimal) ----- */
+    .newsletter {
+      background: #e5d9cc;
+      padding: 2.5rem 2rem;
+      border-radius: 60px 12px 60px 12px;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 2rem;
+      margin: 0;
+      color: #1e3d3a;
+    }
+    .newsletter p {
+      margin: 0.3rem 0 0;
+      max-width: 400px;
+    }
+    .newsletter input {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: white;
+      min-width: 220px;
+    }
+    .newsletter button {
+      background: #1e3d3a;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* ----- footer (clean) ----- */
+    .footer {
+      border-top: 2px solid #e5d9cc;
+      padding: 2rem 0 1rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4d605d;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .cookies-grid {
+        grid-template-columns: 1fr;
+      }
+      .cookies-hero { padding: 2rem; }
+      h1 { font-size: 2.4rem; }
+      .cookies-hero .hero-title { font-size: 2.6rem; }
+      .nav-links { gap: 1.2rem; }
+      .newsletter { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .newsletter input { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0 0.8rem; }
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #dad0c2;
+      margin: 2rem 0;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .tag-group span {
+      background: #dacfc1;
+      padding: 0.25rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (same as main) -->
+  <header class="site-header">
+    <span class="logo">🌾 Fresh Meadow Meals</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html" style="border-bottom-color: #c9a87c;">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- cookies hero -->
+  <section class="cookies-hero">
+    <div class="small-meta">🍪 transparency & choice</div>
+    <h1 class="hero-title">Cookies policy</h1>
+    <p class="subhead">We use cookies to enhance your experience, analyze site traffic, and personalize content. This policy explains what cookies are, how we use them, and how you can manage your preferences.</p>
+    <div class="tag-group">
+      <span>📅 Last updated: April 2025</span>
+      <span>✅ GDPR / ePrivacy compliant</span>
+      <span>🔒 Privacy-first approach</span>
+    </div>
+  </section>
+
+  <!-- cookies grid: main + sidebar -->
+  <div class="cookies-grid">
+    <!-- main content -->
+    <div class="cookies-main">
+      <h2>1. What are cookies?</h2>
+      <p>Cookies are small text files stored on your device when you visit a website. They help us remember your preferences, understand how you interact with our content, and improve your overall experience. Cookies are not used to personally identify you.</p>
+
+      <h2>2. How we use cookies</h2>
+      <p>We use cookies for the following purposes:</p>
+      <ul>
+        <li><strong>Essential:</strong> to enable core functionality like security, network management, and accessibility.</li>
+        <li><strong>Performance & analytics:</strong> to understand how visitors use our site, so we can improve content and usability.</li>
+        <li><strong>Preferences:</strong> to remember your settings, such as language or region.</li>
+        <li><strong>Marketing (optional):</strong> to deliver relevant content and offers, based on your browsing behavior.</li>
+      </ul>
+
+      <h2>3. Types of cookies we use</h2>
+      <p>Below is a detailed list of the cookies we use on Fresh Meadow Meals. We strive to be fully transparent about each cookie's purpose and duration.</p>
+
+      <!-- Cookie table -->
+      <table class="cookie-table">
+        <thead>
+          <tr><th>Name</th><th>Type</th><th>Duration</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>session_id</td><td>Essential</td><td>Session</td><td>Maintains your session while browsing</td></tr>
+          <tr><td>pref_lang</td><td>Preference</td><td>1 year</td><td>Stores your language preference</td></tr>
+          <tr><td>_ga</td><td>Analytics</td><td>2 years</td><td>Google Analytics: distinguishes users</td></tr>
+          <tr><td>_gid</td><td>Analytics</td><td>24 hours</td><td>Google Analytics: user session tracking</td></tr>
+          <tr><td>fm_newsletter</td><td>Marketing</td><td>30 days</td><td>Remembers if you've seen the newsletter prompt</td></tr>
+          <tr><td>cookie_consent</td><td>Essential</td><td>1 year</td><td>Stores your cookie consent preference</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. Your consent & control</h2>
+      <p>When you first visit our site, we ask for your consent to set non-essential cookies. You can change your preferences at any time by clicking the "Cookie Settings" link in the footer. You can also manage or delete cookies directly in your browser settings.</p>
+      <p>Most browsers allow you to block or delete cookies. However, please note that disabling essential cookies may affect the functionality of the site.</p>
+
+      <h2>5. Third-party cookies</h2>
+      <p>We may use services like Google Analytics and social media platforms that set their own cookies. These are governed by the respective third party's privacy policy. We do not control these cookies, but we limit their use to essential analytics.</p>
+
+      <h2>6. Updates to this policy</h2>
+      <p>We may revise this Cookies Policy from time to time. Any changes will be posted on this page, and we will notify you via a banner or email if significant. Your continued use of our site indicates your acceptance of the updated policy.</p>
+
+      <hr />
+      <p style="font-size: 0.9rem; color: #4d605d;">If you have questions about our use of cookies, please contact our Data Protection Officer at <strong>dpo@freshmeadow.com</strong>.</p>
+    </div>
+
+    <!-- sidebar -->
+    <div class="cookies-sidebar">
+      <h3>📋 Quick reference</h3>
+      <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+        <li style="margin-bottom: 0.7rem;"><a href="#what" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">What are cookies?</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#how" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">How we use them</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#types" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Types of cookies</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#control" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Your consent & control</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#third" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Third‑party cookies</a></li>
+      </ul>
+      <div style="margin: 1.5rem 0 0.5rem;">
+        <span class="badge">manage cookies</span>
+      </div>
+      <p><strong>⚙️</strong> <a href="#" style="color: #1e3d3a; text-decoration: underline; text-underline-offset: 3px;">Change cookie preferences</a></p>
+      <p style="font-size: 0.9rem; border-top: 1px solid #dacfc1; padding-top: 1rem; margin-top: 1rem;">
+        <strong>📧</strong> privacy@freshmeadow.com<br />
+        <strong>📞</strong> +1 (555) 203-0405
+      </p>
+    </div>
+  </div>
+
+  <!-- trust signals -->
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; background: #f3eee7; padding: 1.5rem 2rem; border-radius: 60px 12px 60px 12px; margin: 1rem 0 2rem;">
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">🛡️</span> Cookie consent records kept</div>
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">⏳</span> Retention: max 2 years</div>
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">🔍</span> Audited quarterly</div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div><h3>🌿 The Meadow Letter</h3><p>Weekly recipes, season notes, and kitchen wisdom.</p></div>
+    <div><input type="email" placeholder="your email" aria-label="Email" /><button>Subscribe</button></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© Fresh Meadow Meals · est. 2015</span>
+    <span>🌾 400+ articles · from our kitchen to yours</span>
+    <span style="display: flex; gap: 1rem;"><a href="privacy.html" style="color: inherit; text-decoration: none;">Privacy</a> <a href="contact.html" style="color: inherit; text-decoration: none;">Contact</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

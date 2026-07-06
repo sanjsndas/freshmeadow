@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy · Fresh Meadow Meals</title>
+  <!-- unique typography & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (same as main) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fbf7f0;
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    /* ----- typography (unique scale) ----- */
+    h1, h2, h3, h4, .logo, .hero-title, .card-title {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-left: 6px solid #c9a87c;
+      padding-left: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      color: #2a4a4b;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+      max-width: 75ch;
+    }
+
+    .small-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5f6b6b;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ----- header / nav (fresh identity) ----- */
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 2px solid #e5d9cc;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #1e3d3a;
+      background: #e5d9cc;
+      padding: 0.1rem 1.2rem 0.3rem;
+      border-radius: 60px 12px 12px 60px;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b2c;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c9a87c;
+      color: #0f1f1f;
+    }
+
+    /* ----- privacy hero (content-rich) ----- */
+    .privacy-hero {
+      background: #f0ebe2;
+      padding: 2.8rem 3rem;
+      border-radius: 40px 40px 40px 8px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 12px 28px -8px rgba(30, 43, 44, 0.08);
+    }
+
+    .privacy-hero .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      color: #1e3d3a;
+    }
+
+    .privacy-hero .subhead {
+      font-size: 1.2rem;
+      color: #2f4a47;
+      max-width: 700px;
+      font-weight: 350;
+    }
+
+    /* ----- privacy content (structured) ----- */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .privacy-main {
+      background: white;
+      padding: 2rem 2.2rem;
+      border-radius: 32px 8px 32px 8px;
+      border: 1px solid #ede7dd;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+    }
+
+    .privacy-main h2 {
+      border-left: none;
+      padding-left: 0;
+      margin: 1.8rem 0 0.5rem;
+    }
+
+    .privacy-main h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .privacy-main ul, .privacy-main ol {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+    }
+
+    .privacy-main li {
+      margin-bottom: 0.4rem;
+    }
+
+    .privacy-sidebar {
+      background: #f3eee7;
+      padding: 2rem 1.8rem;
+      border-radius: 40px 8px 40px 8px;
+      align-self: start;
+      border: 1px solid #e5d9cc;
+    }
+
+    .privacy-sidebar h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #1e3d3a;
+      border-left: 4px solid #c9a87c;
+      padding-left: 1rem;
+    }
+
+    .privacy-sidebar p {
+      margin: 1rem 0;
+    }
+
+    .privacy-sidebar .badge {
+      background: #c9a87c;
+      color: #1a2c2a;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+
+    /* ----- newsletter (minimal) ----- */
+    .newsletter {
+      background: #e5d9cc;
+      padding: 2.5rem 2rem;
+      border-radius: 60px 12px 60px 12px;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 2rem;
+      margin: 0;
+      color: #1e3d3a;
+    }
+    .newsletter p {
+      margin: 0.3rem 0 0;
+      max-width: 400px;
+    }
+    .newsletter input {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: white;
+      min-width: 220px;
+    }
+    .newsletter button {
+      background: #1e3d3a;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* ----- footer (clean) ----- */
+    .footer {
+      border-top: 2px solid #e5d9cc;
+      padding: 2rem 0 1rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4d605d;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .privacy-grid {
+        grid-template-columns: 1fr;
+      }
+      .privacy-hero { padding: 2rem; }
+      h1 { font-size: 2.4rem; }
+      .privacy-hero .hero-title { font-size: 2.6rem; }
+      .nav-links { gap: 1.2rem; }
+      .newsletter { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .newsletter input { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0 0.8rem; }
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #dad0c2;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (same as main) -->
+  <header class="site-header">
+    <span class="logo">🌾 Fresh Meadow Meals</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html" style="border-bottom-color: #c9a87c;">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- privacy hero -->
+  <section class="privacy-hero">
+    <div class="small-meta">🔒 privacy & trust</div>
+    <h1 class="hero-title">Your privacy matters</h1>
+    <p class="subhead">At Fresh Meadow Meals, we are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+      <span style="background: #dacfc1; padding: 0.25rem 1.2rem; border-radius: 30px;">📅 Last updated: April 2025</span>
+      <span style="background: #dacfc1; padding: 0.25rem 1.2rem; border-radius: 30px;">✅ GDPR compliant</span>
+    </div>
+  </section>
+
+  <!-- privacy grid: main + sidebar -->
+  <div class="privacy-grid">
+    <!-- main content -->
+    <div class="privacy-main">
+      <h2>1. Information we collect</h2>
+      <p>We collect information you provide directly, such as when you subscribe to our newsletter, fill out a contact form, or comment on a recipe. This may include your name, email address, and any message content.</p>
+      <p>We also automatically collect certain data via cookies and similar technologies, including IP address, browser type, and pages visited. This helps us improve your experience.</p>
+
+      <h2>2. How we use your information</h2>
+      <ul>
+        <li><strong>To communicate:</strong> respond to inquiries, send newsletters, and notify you about updates.</li>
+        <li><strong>To improve:</strong> analyze usage patterns to enhance our content and design.</li>
+        <li><strong>To protect:</strong> detect and prevent fraud, abuse, or security incidents.</li>
+      </ul>
+
+      <h2>3. Sharing & disclosure</h2>
+      <p>We do not sell or rent your personal data. We may share information with trusted third-party service providers (e.g., email platforms, analytics) who process data on our behalf, under strict confidentiality agreements.</p>
+      <p>We may also disclose information if required by law or to protect the rights, property, or safety of Fresh Meadow Meals, our users, or others.</p>
+
+      <h2>4. Data security</h2>
+      <p>We implement industry-standard security measures, including encryption, firewalls, and access controls, to safeguard your data. However, no method of transmission over the internet is 100% secure.</p>
+
+      <h2>5. Your rights</h2>
+      <p>You have the right to access, correct, or delete your personal data at any time. You can also withdraw consent for marketing communications. To exercise these rights, contact us at <strong>privacy@freshmeadow.com</strong>.</p>
+
+      <h2>6. Cookies & tracking</h2>
+      <p>We use cookies to remember preferences, analyze traffic, and personalize content. You can control cookie settings in your browser. For more details, see our <a href="cookies.html" style="color: #1e3d3a; text-decoration: underline; text-underline-offset: 4px;">Cookies Policy</a>.</p>
+
+      <h2>7. Changes to this policy</h2>
+      <p>We may update this privacy policy periodically. We will notify you of significant changes by posting a prominent notice on this page. Your continued use of the site constitutes acceptance of the updated policy.</p>
+
+      <hr />
+      <p style="font-size: 0.9rem; color: #4d605d;">If you have any questions about this privacy policy, please contact our Data Protection Officer at <strong>dpo@freshmeadow.com</strong>.</p>
+    </div>
+
+    <!-- sidebar -->
+    <div class="privacy-sidebar">
+      <h3>📋 Quick links</h3>
+      <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+        <li style="margin-bottom: 0.7rem;"><a href="#collect" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Information we collect</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#use" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">How we use data</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#share" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Sharing & disclosure</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#rights" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Your rights</a></li>
+        <li style="margin-bottom: 0.7rem;"><a href="#cookies" style="color: #1e3d3a; text-decoration: none; border-bottom: 2px solid #c9a87c;">Cookies</a></li>
+      </ul>
+      <div style="margin: 1.5rem 0 0.5rem;">
+        <span class="badge">contact</span>
+      </div>
+      <p><strong>📧</strong> privacy@freshmeadow.com<br />
+      <strong>📞</strong> +1 (555) 203-0405</p>
+      <p style="font-size: 0.9rem; border-top: 1px solid #dacfc1; padding-top: 1rem; margin-top: 1rem;">
+        <strong>Data Protection Officer:</strong> Elena Rivera
+      </p>
+    </div>
+  </div>
+
+  <!-- additional trust signals -->
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; background: #f3eee7; padding: 1.5rem 2rem; border-radius: 60px 12px 60px 12px; margin: 1rem 0 2rem;">
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">🔐</span> SSL encrypted</div>
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">🌍</span> Data stored in EU</div>
+    <div><span style="font-size: 2rem; margin-right: 0.5rem;">⏳</span> Data retention: 24 months</div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div><h3>🌿 The Meadow Letter</h3><p>Weekly recipes, season notes, and kitchen wisdom.</p></div>
+    <div><input type="email" placeholder="your email" aria-label="Email" /><button>Subscribe</button></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© Fresh Meadow Meals · est. 2015</span>
+    <span>🌾 400+ articles · from our kitchen to yours</span>
+    <span style="display: flex; gap: 1rem;"><a href="privacy.html" style="color: inherit; text-decoration: none;">Privacy</a> <a href="contact.html" style="color: inherit; text-decoration: none;">Contact</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

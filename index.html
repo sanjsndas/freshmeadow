@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Meadow Meals · wholesome seasonal recipes</title>
+  <!-- unique typography & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fbf7f0;  /* warm off-white */
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    /* ----- typography (unique scale) ----- */
+    h1, h2, h3, h4, .logo, .hero-title, .card-title {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-left: 6px solid #c9a87c;
+      padding-left: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      color: #2a4a4b;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+      max-width: 75ch;
+    }
+
+    .small-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5f6b6b;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ----- header / nav (fresh identity) ----- */
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 2px solid #e5d9cc;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #1e3d3a;
+      background: #e5d9cc;
+      padding: 0.1rem 1.2rem 0.3rem;
+      border-radius: 60px 12px 12px 60px;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b2c;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c9a87c;
+      color: #0f1f1f;
+    }
+
+    /* ----- hero (content-rich) ----- */
+    .hero {
+      background: #f0ebe2;
+      padding: 2.8rem 3rem;
+      border-radius: 40px 40px 40px 8px;
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 12px 28px -8px rgba(30, 43, 44, 0.08);
+    }
+
+    .hero-content {
+      flex: 2 1 380px;
+    }
+
+    .hero-content .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      color: #1e3d3a;
+    }
+
+    .hero-content .subhead {
+      font-size: 1.2rem;
+      color: #2f4a47;
+      max-width: 600px;
+      margin-bottom: 1.2rem;
+      font-weight: 350;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .hero-tags span {
+      background: #dacfc1;
+      padding: 0.25rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1f3735;
+    }
+
+    .hero-image {
+      flex: 1 1 200px;
+      border-radius: 28px 28px 28px 4px;
+      overflow: hidden;
+      background: #c9b8a3;
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2a3d3a;
+      font-size: 0.9rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280"><rect width="400" height="280" fill="%23dacfc1"/><circle cx="130" cy="120" r="50" fill="%23b7a48b"/><circle cx="280" cy="170" r="40" fill="%239d8973"/><rect x="50" y="190" width="300" height="20" rx="10" fill="%23a18d77"/><rect x="120" y="230" width="160" height="20" rx="10" fill="%238b7a66"/></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ----- article grid (content-first) ----- */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 2.8rem;
+    }
+
+    .section-head h2 {
+      border-left: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .view-all {
+      font-weight: 500;
+      color: #5e6f6b;
+      text-decoration: none;
+      border-bottom: 2px dotted #c9a87c;
+    }
+
+    .grid-2col, .grid-3col {
+      display: grid;
+      gap: 2rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .grid-2col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .article-card {
+      background: white;
+      padding: 1.8rem 1.8rem 2rem;
+      border-radius: 32px 8px 32px 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      transition: 0.2s;
+      border: 1px solid #ede7dd;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 12px 28px -8px rgba(30, 43, 44, 0.10);
+      border-color: #dacfc1;
+    }
+
+    .card-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8c7b67;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #1e3d3a;
+    }
+
+    .card-excerpt {
+      font-size: 0.95rem;
+      color: #2f4240;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: #627070;
+      border-top: 1px solid #ece3d8;
+      padding-top: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .featured-image-placeholder {
+      width: 100%;
+      height: 120px;
+      background: #dacfc1;
+      border-radius: 24px 4px 24px 4px;
+      margin-bottom: 1.2rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120"><rect width="300" height="120" fill="%23dacfc1"/><circle cx="80" cy="50" r="25" fill="%23b7a48b"/><circle cx="210" cy="70" r="30" fill="%239d8973"/><rect x="40" y="90" width="220" height="12" rx="6" fill="%23a18d77"/></svg>');
+      background-size: cover;
+    }
+
+    /* special card for featured article */
+    .featured-card .featured-image-placeholder {
+      height: 150px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" width="400" height="180"><rect width="400" height="180" fill="%23dacfc1"/><circle cx="100" cy="80" r="40" fill="%23b7a48b"/><circle cx="280" cy="110" r="35" fill="%239d8973"/><rect x="60" y="140" width="280" height="14" rx="8" fill="%23a18d77"/></svg>');
+    }
+
+    /* ----- beginner guides / expert (unique cards) ----- */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .guide-item {
+      background: #f3eee7;
+      padding: 1.5rem;
+      border-radius: 40px 8px 40px 8px;
+      border-left: 4px solid #c9a87c;
+    }
+    .guide-item h4 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.3rem;
+    }
+
+    /* ----- faq section (schema-ready) ----- */
+    .faq-list {
+      margin: 2rem 0;
+    }
+    .faq-item {
+      background: white;
+      padding: 1rem 1.8rem;
+      border-radius: 50px 8px 50px 8px;
+      margin-bottom: 0.8rem;
+      border: 1px solid #e5d9cc;
+    }
+    .faq-item strong {
+      display: block;
+      font-family: "DM Serif Display", serif;
+      font-size: 1.2rem;
+      color: #1e3d3a;
+    }
+    .faq-item p {
+      margin: 0.4rem 0 0;
+      color: #2f4a47;
+    }
+
+    /* ----- newsletter (minimal) ----- */
+    .newsletter {
+      background: #e5d9cc;
+      padding: 2.5rem 2rem;
+      border-radius: 60px 12px 60px 12px;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 2rem;
+      margin: 0;
+      color: #1e3d3a;
+    }
+    .newsletter p {
+      margin: 0.3rem 0 0;
+      max-width: 400px;
+    }
+    .newsletter input {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: white;
+      min-width: 220px;
+    }
+    .newsletter button {
+      background: #1e3d3a;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* ----- footer (clean) ----- */
+    .footer {
+      border-top: 2px solid #e5d9cc;
+      padding: 2rem 0 1rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4d605d;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .grid-2col, .grid-3col { grid-template-columns: 1fr; }
+      .hero { padding: 2rem; }
+      h1 { font-size: 2.4rem; }
+      .hero-content .hero-title { font-size: 2.6rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .newsletter { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .newsletter input { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0 0.8rem; }
+    }
+
+    /* extra: unique detail */
+    .badge {
+      background: #c9a87c;
+      color: #1a2c2a;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+    hr {
+      border: none;
+      border-top: 2px dashed #dad0c2;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="site-header">
+    <span class="logo">🌾 Fresh Meadow Meals</span>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+    </div>
+  </header>
+
+  <!-- hero (content-rich) -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="small-meta">since 2015 · from our kitchen</div>
+      <h1 class="hero-title">Wholesome meals,<br>season by season</h1>
+      <p class="subhead">Fresh Meadow Meals is a kitchen journal rooted in real food, simple techniques, and the rhythm of the garden. Explore 400+ tested recipes, from heirloom vegetables to hearth-baked bread.</p>
+      <div class="hero-tags">
+        <span>🥕 farm to table</span>
+        <span>🍞 sourdough</span>
+        <span>🌿 herb garden</span>
+        <span>🥣 one-pot</span>
+      </div>
+    </div>
+    <div class="hero-image" aria-label="Fresh seasonal produce and bread"></div>
+  </section>
+
+  <!-- Featured Articles -->
+  <div class="section-head">
+    <h2>🌱 Featured articles</h2>
+    <a href="#" class="view-all">see all →</a>
+  </div>
+  <div class="grid-2col">
+    <article class="article-card featured-card">
+      <div class="featured-image-placeholder"></div>
+      <span class="card-category">technique</span>
+      <h3 class="card-title">The art of no-knead sourdough</h3>
+      <p class="card-excerpt">Master the rhythm of wild fermentation with our 5-day guide. Achieve a crisp, open crumb and deep flavour — no stand mixer required.</p>
+      <div class="card-meta">📖 2,400 words · 12 min read</div>
+    </article>
+    <article class="article-card">
+      <span class="card-category">seasonal</span>
+      <h3 class="card-title">Summer squash & basil skillet</h3>
+      <p class="card-excerpt">A single-pan celebration of zucchini, yellow squash, and garden basil. Perfect for busy weeknights — and it’s vegan adaptable.</p>
+      <div class="card-meta">📖 1,800 words · 9 min read</div>
+    </article>
+  </div>
+
+  <!-- Beginner Guides + Expert Resources (mixed) -->
+  <div class="section-head">
+    <h2>📘 Beginner guides</h2>
+    <a href="#" class="view-all">start here →</a>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-item"><h4>🥣 10 essential pantry staples</h4><p>Build a flexible kitchen with grains, oils, and acids.</p></div>
+    <div class="guide-item"><h4>🔪 Knife skills 101</h4><p>Dice, julienne, and chiffonade with confidence.</p></div>
+    <div class="guide-item"><h4>🧂 Salt & seasoning</h4><p>How to season layer by layer for depth.</p></div>
+  </div>
+  <div class="section-head" style="margin-top: 0.5rem;">
+    <h2>🧑‍🍳 Expert resources</h2>
+    <a href="#" class="view-all">deep dives →</a>
+  </div>
+  <div class="guide-grid">
+    <div class="guide-item" style="border-left-color: #8c7b67;"><h4>🧪 Hydration & dough</h4><p>Baker’s percentages and temperature control.</p></div>
+    <div class="guide-item" style="border-left-color: #8c7b67;"><h4>🌾 Grain milling</h4><p>Freshly milled flour – flavour and nutrition.</p></div>
+  </div>
+
+  <!-- Popular Categories + Trending Topics -->
+  <div class="grid-2col" style="margin-top: 2rem;">
+    <div>
+      <h2 style="border-left: 6px solid #b7a48b; padding-left: 1rem;">📂 Categories</h2>
+      <ul style="list-style: none; margin-top: 1rem; columns: 2; column-gap: 2rem;">
+        <li style="margin-bottom: 0.6rem;">· Sourdough & bread</li>
+        <li style="margin-bottom: 0.6rem;">· Seasonal vegetables</li>
+        <li style="margin-bottom: 0.6rem;">· One-pot meals</li>
+        <li style="margin-bottom: 0.6rem;">· Preserving & pickling</li>
+        <li style="margin-bottom: 0.6rem;">· Herbal remedies</li>
+        <li style="margin-bottom: 0.6rem;">· Breakfast & grains</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="border-left: 6px solid #b7a48b; padding-left: 1rem;">🔥 Trending now</h2>
+      <div style="margin-top: 1rem;">
+        <p style="border-bottom: 1px solid #e5d9cc; padding: 0.6rem 0;">1. Overnight oats 5 ways</p>
+        <p style="border-bottom: 1px solid #e5d9cc; padding: 0.6rem 0;">2. Fermented hot sauce</p>
+        <p style="border-bottom: 1px solid #e5d9cc; padding: 0.6rem 0;">3. Heirloom tomato tart</p>
+        <p style="padding: 0.6rem 0;">4. Whole grain pancakes</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest Articles & In-Depth Tutorials -->
+  <div class="section-head"><h2>📰 Latest articles</h2><a href="#" class="view-all">more →</a></div>
+  <div class="grid-3col">
+    <article class="article-card"><span class="card-category">technique</span><h4 class="card-title">How to bloom yeast</h4><p class="card-excerpt">A visual guide to activating dry yeast for bread and pizza.</p><div class="card-meta">1,200 words</div></article>
+    <article class="article-card"><span class="card-category">preserving</span><h4 class="card-title">Quick fridge pickles</h4><p class="card-excerpt">Crunchy, tangy pickles in 24 hours – no canning equipment.</p><div class="card-meta">1,500 words</div></article>
+    <article class="article-card"><span class="card-category">grain</span><h4 class="card-title">Farro salad with herbs</h4><p class="card-excerpt">Nutty farro, parsley, mint, and a lemon vinaigrette.</p><div class="card-meta">1,100 words</div></article>
+  </div>
+
+  <div class="section-head"><h2>🔬 In-depth tutorials</h2><a href="#" class="view-all">all tutorials →</a></div>
+  <div class="grid-2col">
+    <article class="article-card"><span class="card-category">masterclass</span><h4 class="card-title">Sourdough starter from scratch</h4><p class="card-excerpt">Day-by-day: flour, water, and patience. With troubleshooting table.</p><div class="card-meta">3,200 words · 15 min</div></article>
+    <article class="article-card"><span class="card-category">masterclass</span><h4 class="card-title">Tomato sauce: 3 methods</h4><p class="card-excerpt">Fresh, roasted, and slow-simmered – flavour comparisons and uses.</p><div class="card-meta">2,100 words</div></article>
+  </div>
+
+  <!-- Resource Hub (minimal image: infographic placeholder) -->
+  <div style="background: #ede7dd; padding: 1.8rem; border-radius: 40px 8px; margin: 2.5rem 0;">
+    <h2 style="border-left: none; padding-left: 0;">📦 Resource hub</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+      <div style="flex:2;">
+        <p><strong>Seasonal produce chart</strong> · when to find the best vegetables, fruits, and herbs in your region. Printable PDF included.</p>
+        <p>📊 <span style="background: #dacfc1; padding: 0.1rem 1rem; border-radius: 30px;">Download infographic</span></p>
+      </div>
+      <div style="flex:1; min-height: 80px; background: #c9b8a3; border-radius: 30px 4px 30px 4px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80"><rect width="200" height="80" fill="%23c9b8a3"/><circle cx="40" cy="30" r="16" fill="%23a18d77"/><circle cx="120" cy="45" r="14" fill="%238b7a66"/><rect x="20" y="65" width="160" height="8" rx="4" fill="%239d8973"/></svg>'); background-size: cover;"></div>
+    </div>
+  </div>
+
+  <!-- FAQ section (schema-ready) -->
+  <div class="faq-list">
+    <h2>❓ Frequently asked questions</h2>
+    <div class="faq-item"><strong>Can I substitute whole wheat flour?</strong><p>Yes – but you may need to adjust hydration. We recommend starting with a 50/50 blend.</p></div>
+    <div class="faq-item"><strong>How do I store sourdough starter?</strong><p>Keep it in the fridge and feed weekly. For long breaks, dry or freeze it.</p></div>
+    <div class="faq-item"><strong>Are your recipes gluten‑free adaptable?</strong><p>Many are – look for the GF tag. We also have dedicated gluten‑free guides.</p></div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div><h3>🌿 The Meadow Letter</h3><p>Weekly recipes, season notes, and kitchen wisdom.</p></div>
+    <div><input type="email" placeholder="your email" aria-label="Email"><button>Subscribe</button></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© Fresh Meadow Meals · est. 2015</span>
+    <span>🌾 400+ articles · from our kitchen to yours</span>
+    <span style="display: flex; gap: 1rem;"><a href="#" style="color: inherit; text-decoration: none;">Privacy</a> <a href="#" style="color: inherit; text-decoration: none;">Contact</a></span>
+  </footer>
+
+  <!-- (only 4 images used: hero, featured, category infographic, plus one inline) -->
+</div>
+</body>
+</html>

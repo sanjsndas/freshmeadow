@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Fresh Meadow Meals</title>
+  <!-- unique typography & reset -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (same as main) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #fbf7f0;
+      color: #1e2b2c;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    /* ----- typography (unique scale) ----- */
+    h1, h2, h3, h4, .logo, .hero-title, .card-title {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 2.5rem 0 1rem;
+      border-left: 6px solid #c9a87c;
+      padding-left: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      color: #2a4a4b;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+      max-width: 75ch;
+    }
+
+    .small-meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5f6b6b;
+      margin-bottom: 0.25rem;
+    }
+
+    /* ----- header / nav (fresh identity) ----- */
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0 1rem;
+      border-bottom: 2px solid #e5d9cc;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #1e3d3a;
+      background: #e5d9cc;
+      padding: 0.1rem 1.2rem 0.3rem;
+      border-radius: 60px 12px 12px 60px;
+      display: inline-block;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b2c;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.25rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #c9a87c;
+      color: #0f1f1f;
+    }
+
+    /* ----- contact hero (content-rich) ----- */
+    .contact-hero {
+      background: #f0ebe2;
+      padding: 2.8rem 3rem;
+      border-radius: 40px 40px 40px 8px;
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 12px 28px -8px rgba(30, 43, 44, 0.08);
+    }
+
+    .contact-hero-content {
+      flex: 2 1 380px;
+    }
+
+    .contact-hero-content .hero-title {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      color: #1e3d3a;
+    }
+
+    .contact-hero-content .subhead {
+      font-size: 1.2rem;
+      color: #2f4a47;
+      max-width: 600px;
+      margin-bottom: 1.2rem;
+      font-weight: 350;
+    }
+
+    .contact-hero-image {
+      flex: 1 1 200px;
+      border-radius: 28px 28px 28px 4px;
+      overflow: hidden;
+      background: #c9b8a3;
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2a3d3a;
+      font-size: 0.9rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280"><rect width="400" height="280" fill="%23dacfc1"/><circle cx="130" cy="120" r="50" fill="%23b7a48b"/><circle cx="280" cy="170" r="40" fill="%239d8973"/><rect x="50" y="190" width="300" height="20" rx="10" fill="%23a18d77"/><rect x="120" y="230" width="160" height="20" rx="10" fill="%238b7a66"/></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ----- contact grid (form + info) ----- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 2rem 2.2rem;
+      border-radius: 32px 8px 32px 8px;
+      border: 1px solid #ede7dd;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid #dacfc1;
+      border-radius: 40px;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      background: #fcf9f5;
+      transition: 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid #c9a87c;
+      border-color: transparent;
+      background: white;
+    }
+
+    .contact-form textarea {
+      border-radius: 24px;
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form .form-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-form .form-row > * {
+      flex: 1 1 180px;
+    }
+
+    .btn-submit {
+      background: #1e3d3a;
+      border: none;
+      color: white;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .btn-submit:hover {
+      background: #2a5a55;
+      transform: scale(1.01);
+    }
+
+    /* contact info sidebar */
+    .contact-info {
+      background: #f3eee7;
+      padding: 2rem 1.8rem;
+      border-radius: 40px 8px 40px 8px;
+      align-self: start;
+      border: 1px solid #e5d9cc;
+    }
+
+    .contact-info h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #1e3d3a;
+      border-left: 4px solid #c9a87c;
+      padding-left: 1rem;
+    }
+
+    .contact-info p {
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .contact-info .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.8rem 0;
+      font-size: 1rem;
+    }
+
+    .contact-info .info-item span:first-child {
+      font-size: 1.4rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      background: #dacfc1;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #1e2b2c;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      background: #c9a87c;
+      color: #0f1f1f;
+    }
+
+    /* ----- FAQ / extra section (schema-ready) ----- */
+    .faq-list {
+      margin: 2rem 0;
+    }
+    .faq-item {
+      background: white;
+      padding: 1rem 1.8rem;
+      border-radius: 50px 8px 50px 8px;
+      margin-bottom: 0.8rem;
+      border: 1px solid #e5d9cc;
+    }
+    .faq-item strong {
+      display: block;
+      font-family: "DM Serif Display", serif;
+      font-size: 1.2rem;
+      color: #1e3d3a;
+    }
+    .faq-item p {
+      margin: 0.4rem 0 0;
+      color: #2f4a47;
+    }
+
+    /* ----- newsletter (minimal) ----- */
+    .newsletter {
+      background: #e5d9cc;
+      padding: 2.5rem 2rem;
+      border-radius: 60px 12px 60px 12px;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter h3 {
+      font-family: "DM Serif Display", serif;
+      font-size: 2rem;
+      margin: 0;
+      color: #1e3d3a;
+    }
+    .newsletter p {
+      margin: 0.3rem 0 0;
+      max-width: 400px;
+    }
+    .newsletter input {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: white;
+      min-width: 220px;
+    }
+    .newsletter button {
+      background: #1e3d3a;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* ----- footer (clean) ----- */
+    .footer {
+      border-top: 2px solid #e5d9cc;
+      padding: 2rem 0 1rem;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4d605d;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-hero { padding: 2rem; }
+      h1 { font-size: 2.4rem; }
+      .contact-hero-content .hero-title { font-size: 2.6rem; }
+      .nav-links { gap: 1.2rem; }
+      .newsletter { flex-direction: column; align-items: stretch; gap: 1rem; }
+      .newsletter input { width: 100%; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 0 0.8rem; }
+    }
+
+    .badge {
+      background: #c9a87c;
+      color: #1a2c2a;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+    hr {
+      border: none;
+      border-top: 2px dashed #dad0c2;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (same as main) -->
+  <header class="site-header">
+    <span class="logo">🌾 Fresh Meadow Meals</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" style="border-bottom-color: #c9a87c;">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- contact hero -->
+  <section class="contact-hero">
+    <div class="contact-hero-content">
+      <div class="small-meta">📬 get in touch</div>
+      <h1 class="hero-title">We’d love to hear<br>from you</h1>
+      <p class="subhead">Questions about a recipe? Suggestions for a future article? Or just want to say hello — drop us a line. We reply to every message within 24 hours.</p>
+      <div class="hero-tags" style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+        <span style="background: #dacfc1; padding: 0.25rem 1.2rem; border-radius: 30px;">✉️ hello@freshmeadow.com</span>
+        <span style="background: #dacfc1; padding: 0.25rem 1.2rem; border-radius: 30px;">📞 +1 (555) 203-0405</span>
+      </div>
+    </div>
+    <div class="contact-hero-image" aria-label="Fresh produce and kitchen"></div>
+  </section>
+
+  <!-- contact grid: form + info -->
+  <div class="contact-grid">
+    <!-- form -->
+    <div class="contact-form">
+      <h2 style="border-left: none; padding-left: 0; margin: 0 0 0.5rem 0;">Send a message</h2>
+      <p style="margin-bottom: 1.8rem; font-size: 0.95rem; color: #4d605d;">We’ll get back to you as soon as possible.</p>
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Jamie Oliver" required />
+          </div>
+          <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="recipe">Recipe question</option>
+          <option value="suggestion">Suggestion / feedback</option>
+          <option value="collab">Collaboration</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
+
+        <button type="submit" class="btn-submit">Send message →</button>
+      </form>
+    </div>
+
+    <!-- info sidebar -->
+    <div class="contact-info">
+      <h3>🌿 Kitchen desk</h3>
+      <p>Reach out through any of the channels below, or visit our farm kitchen by appointment.</p>
+      <div class="info-item"><span>📍</span> 124 Meadow Lane, VT 05001</div>
+      <div class="info-item"><span>📧</span> hello@freshmeadow.com</div>
+      <div class="info-item"><span>📞</span> +1 (555) 203-0405</div>
+      <div class="info-item"><span>🕗</span> Mon–Fri · 9am – 6pm EST</div>
+
+      <div style="margin: 1.5rem 0 0.5rem;">
+        <span class="badge">social</span>
+      </div>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">YouTube</a>
+      </div>
+      <p style="margin-top: 1.8rem; font-size: 0.9rem; border-top: 1px solid #dacfc1; padding-top: 1.2rem;">
+        <strong>Press & media:</strong> press@freshmeadow.com
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ section (additional contact-related) -->
+  <div class="faq-list">
+    <h2>❓ Quick answers</h2>
+    <div class="faq-item"><strong>How soon can I expect a reply?</strong><p>We reply within 24 hours on business days. For urgent recipe questions, check our active community forum.</p></div>
+    <div class="faq-item"><strong>Do you accept guest posts?</strong><p>Yes — we love hearing from fellow food writers. Please send a pitch to our editorial team using the form above.</p></div>
+    <div class="faq-item"><strong>Can I visit the kitchen?</strong><p>We host occasional workshops and open days. Subscribe to our newsletter for upcoming dates.</p></div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter">
+    <div><h3>🌿 The Meadow Letter</h3><p>Weekly recipes, season notes, and kitchen wisdom.</p></div>
+    <div><input type="email" placeholder="your email" aria-label="Email" /><button>Subscribe</button></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© Fresh Meadow Meals · est. 2015</span>
+    <span>🌾 400+ articles · from our kitchen to yours</span>
+    <span style="display: flex; gap: 1rem;"><a href="#" style="color: inherit; text-decoration: none;">Privacy</a> <a href="#" style="color: inherit; text-decoration: none;">Contact</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
